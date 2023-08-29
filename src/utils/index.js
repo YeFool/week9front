@@ -33,8 +33,9 @@ export const loginUser = async (username, password, newUser) => {
         });
         const data = await response.json();
 
-        console.log("data:", data);
+        
         newUser(data.user.username)
+        console.log("data:", data);
         writeCookie("jwt_token", data.user.token, 7)
     } catch (error) {
         console.log(error);
