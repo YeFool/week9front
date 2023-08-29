@@ -26,7 +26,7 @@ export const loginUser = async (username, password, newUser) => {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON({
+            body: JSON.stringify({
                 username: "username",
                 password: "password"
             }),
