@@ -3,7 +3,7 @@ import { writeCookie } from "../common";
 
 export const registerUser = async (username, email, password) => {
     try {
-        const response = await fetch("http://localhost:5001/users/registerUser", {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}users/registerUser`, {
             method: "POST",
             headers:{"Content-Type" : "application/json"},
             body: JSON.stringify({
@@ -21,7 +21,7 @@ export const registerUser = async (username, email, password) => {
 
 export const loginUser = async (username, password, newUser) => {
     try {
-        const response = await fetch("http://localhost:5001/users/userLogin", {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}users/userLogin`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -43,7 +43,7 @@ export const loginUser = async (username, password, newUser) => {
 
 export const updateUser = async (username, password, email) => {
     try {
-        const response = await fetch("http://localhost:5001/users/updateUser", {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}users/updateUser`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -66,7 +66,7 @@ export const updateUser = async (username, password, email) => {
 export const deleteUser = async (username, token) => {
     try {
         
-        const response = await fetch("http://localhost:5001/users/deleteUser", {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}users/deleteUser`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
@@ -87,7 +87,7 @@ export const deleteUser = async (username, token) => {
 
 export const authCheck = async (token) => {
     try{
-        const response = await fetch("http://localhost:5001/users/authCheck", {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}users/authCheck`, {
         method: "GET",
         headers:{"Content-Type" : "application/json",
                  "Authorization": token
